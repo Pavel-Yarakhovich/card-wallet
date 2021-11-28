@@ -2,8 +2,8 @@ import React, { useReducer, createContext, useContext, useRef } from "react";
 export const AppStoreContext = createContext();
 
 const cardTypes = {
-  visa: "Visa",
-  masterCard: "MasterCard",
+  visa: "visa",
+  masterCard: "mastercard",
 };
 
 const mockCards = [
