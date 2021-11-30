@@ -14,11 +14,11 @@ import {
 } from "@chakra-ui/react";
 
 const languages = ["en", "fr", "de", "nl"];
-const showcaseUrl = "http://devshowcase.prompto.com/ZDLLE";
+const showcaseUrl = "https://devshowcase.prompto.com/ZDLLE";
 const showcaseIframeId = "showcase-iframe";
 
 const devShowcaseUrl = "http://localhost:3001/ZDLLE";
-const devShowcaseIframeId = "-devshowcase-iframe";
+const devShowcaseIframeId = "devshowcase-iframe";
 
 export default function TestLocalization() {
   const [lang, setLang] = React.useState("");
