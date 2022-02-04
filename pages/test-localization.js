@@ -14,7 +14,8 @@ import {
 } from "@chakra-ui/react";
 
 const languages = ["en", "fr", "de", "nl"];
-const showcaseUrl = "https://devshowcase.prompto.com/ZDLLE";
+const showcaseUrl =
+  "https://ds-9751-update-unit-list-card-layout-dot-prompto-showcase.appspot.com/ZDLLE?env=development";
 const showcaseIframeId = "showcase-iframe";
 
 const devShowcaseUrl = "http://localhost:3001/ZDLLE";
