@@ -84,6 +84,7 @@ export default function TestLocalization() {
 
       <main className={styles.main}>
         <iframe
+          allowSameOrigin="true"
           id={showcaseIframeId}
           title="prompto"
           width="900"
@@ -92,6 +93,7 @@ export default function TestLocalization() {
         />
         <Text>LOCALHOST TEST</Text>
         <iframe
+          allowSameOrigin="true"
           id={devShowcaseIframeId}
           title="prompto"
           width="900"
