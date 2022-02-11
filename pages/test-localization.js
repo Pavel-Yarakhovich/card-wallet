@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
@@ -23,6 +23,8 @@ const devShowcaseIframeId = "devshowcase-iframe";
 
 export default function TestLocalization() {
   const [lang, setLang] = React.useState("");
+  const [showcaseUrl, setShowcaseUrl] = useState();
+  const [showIframe, setShowIframe] = useState(false);
 
   React.useEffect(() => {
     setLang(languages[0]);
@@ -83,23 +85,44 @@ export default function TestLocalization() {
       </header>
 
       <main className={styles.main}>
-        <iframe
-          allowSameOrigin="true"
-          id={showcaseIframeId}
-          title="prompto"
-          width="900"
-          height="600"
-          src={showcaseUrl}
-        />
-        <Text>LOCALHOST TEST</Text>
-        <iframe
-          allowSameOrigin="true"
-          id={devShowcaseIframeId}
-          title="prompto"
-          width="900"
-          height="600"
-          src={devShowcaseUrl}
-        />
+        <Flex
+          width="100%"
+          height="40px"
+          marginBottom="15px"
+          borderRadius="4px"
+          alignItems="center"
+        >
+          <Text whiteSpace="nowrap">Showcase URL</Text>
+          <Input
+            variant="outline"
+            value={showcaseUrl}
+            onChange={(e) => {
+              setShowIframe(false);
+              setShowcaseUrl(e.target.value);
+            }}
+            size="sm"
+            marginLeft="15px"
+          />
+          <Button
+            size="md"
+            marginLeft="10px"
+            onClick={() => setShowIframe(true)}
+          >
+            Show
+          </Button>
+        </Flex>
+        <Container maxW="container.xl" width="100%" height="70vh">
+          {showIframe ? (
+            <iframe
+              id={showcaseIframeId}
+              title="prompto"
+              style={{ width: "100%", height: "100%" }}
+              src={showcaseUrl}
+            />
+          ) : (
+            "No URL provided"
+          )}
+        </Container>
       </main>
     </div>
   );
