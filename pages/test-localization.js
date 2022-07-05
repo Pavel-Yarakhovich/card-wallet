@@ -18,7 +18,7 @@ const showcaseUrl =
   "https://ds-9751-update-unit-list-card-layout-dot-prompto-showcase.appspot.com/ZDLLE?env=development";
 const showcaseIframeId = "showcase-iframe";
 
-const devShowcaseUrl = "http://localhost:3001/ZDLLE";
+const devShowcaseUrl = "http://localhost:3001/YEXSS?env=production";
 const devShowcaseIframeId = "devshowcase-iframe";
 
 export default function TestLocalization() {
@@ -55,6 +55,30 @@ export default function TestLocalization() {
       );
     }
   }, [lang]);
+
+  const handleFormMessage = React.useCallback((event) => {
+    console.log("PARENT", event?.data);
+    // if (
+    //   event.data.type === 'hsFormCallback' &&
+    //   event.data.eventName === 'onFormReady'
+    // ) {
+    //   setIsFormReady(true);
+    // }
+
+    // if (
+    //   event.data.type === 'hsFormCallback' &&
+    //   event.data.eventName === 'onFormSubmitted'
+    // ) {
+    //   setFormSubmitted(true);
+    // }
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener("message", handleFormMessage);
+    return () => {
+      window.removeEventListener("message", handleFormMessage);
+    };
+  }, [handleFormMessage]);
 
   return (
     <div className={styles.container}>
@@ -111,13 +135,20 @@ export default function TestLocalization() {
             Show
           </Button>
         </Flex>
-        <Container maxW="container.xl" width="100%" height="70vh">
+        <Container
+          position="fixed"
+          maxW="container.xl"
+          width="100vw"
+          height="100vh"
+        >
           {showIframe ? (
             <iframe
               id={showcaseIframeId}
               title="prompto"
               style={{ width: "100%", height: "100%" }}
               src={showcaseUrl}
+              allowFullScreen
+              allowscripts="true"
             />
           ) : (
             "No URL provided"
