@@ -6,7 +6,8 @@ import { Container } from "@chakra-ui/react";
 
 export default function EmbeddedShocase() {
   const [showcaseUrl, setShowcaseUrl] = useState(
-    "https://devshowcase.prompto.com/JRFDD/tour?env=production"
+    // "https://devshowcase.prompto.com/JRFDD/tour?env=production"
+    "https://showcase.prompto.com/G644O/tour"
   );
 
   return (

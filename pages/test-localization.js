@@ -136,10 +136,10 @@ export default function TestLocalization() {
           </Button>
         </Flex>
         <Container
-          position="fixed"
+          position="static"
           maxW="container.xl"
-          width="100vw"
-          height="100vh"
+          width="100%"
+          height="100%"
         >
           {showIframe ? (
             <iframe
