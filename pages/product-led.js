@@ -44,7 +44,9 @@ export default function TestLocalization() {
             marginLeft="10px"
             onClick={() =>
               window.open(
-                `http://ds-11079-story-add-new-register-form.vrtual-media-portal-dev.ew.r.appspot.com/product-led?email=${email}`
+                `http://ds-11079-story-add-new-register-form.vrtual-media-portal-dev.ew.r.appspot.com/product-led?email=${encodeURIComponent(
+                  email
+                )}`
               )
             }
           >
